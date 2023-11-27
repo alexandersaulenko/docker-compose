@@ -1,0 +1,13 @@
+#https://blog.unixhost.pro/2023/04/automatic-control-of-docker-container-updates-with-watchtower/
+
+version: "3"
+services:
+  watchtower:
+    image: containrrr/watchtower
+    restart: always
+    command: --cleanup true
+    ports:
+      - 9090:9090
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/localtime:/etc/localtime:ro
